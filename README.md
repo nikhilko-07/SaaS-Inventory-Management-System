@@ -185,7 +185,7 @@ Git (for cloning)
 Installation Steps
 1. Clone Repository
 bash
-git clone https://github.com/yourusername/stockflow.git
+git clone https://github.com/nikhilko-07/SaaS-Inventory-Management-System.git
 cd stockflow
 2. Backend Setup
 bash
@@ -206,7 +206,7 @@ PORT=5000
 NODE_ENV=development
 
 # Database - PostgreSQL
-DATABASE_URL="postgresql://postgres:password@localhost:5432/stockflow"
+DATABASE_URL="postgresql://neondb_owner:npg_O7tWYyxeQh3o@ep-bold-morning-aiiv5xmq-pooler.c-4.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
 
 # For SQLite (development only)
 # DATABASE_URL="file:./dev.db"

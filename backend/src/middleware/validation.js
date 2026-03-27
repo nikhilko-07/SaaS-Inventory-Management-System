@@ -53,18 +53,12 @@ export const loginSchema = Joi.object({
 });
 
 export const productSchema = Joi.object({
-  name: Joi.string().min(1).required().messages({
-    'string.min': 'Product name is required',
-    'any.required': 'Product name is required'
-  }),
-  sku: Joi.string().min(1).required().messages({
-    'string.min': 'SKU is required',
-    'any.required': 'SKU is required'
-  }),
+  name: Joi.string().min(1).required(),
+  sku: Joi.string().min(1).required(),
   description: Joi.string().allow('', null),
   quantityOnHand: Joi.number().integer().min(0).default(0),
-  costPrice: Joi.number().min(0).allow(null),
-  sellingPrice: Joi.number().min(0).allow(null),
+  costPrice: Joi.number().min(0).allow(null).positive(),
+  sellingPrice: Joi.number().min(0).allow(null).positive(),
   lowStockThreshold: Joi.number().integer().min(0).allow(null)
 });
 

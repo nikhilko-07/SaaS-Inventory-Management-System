@@ -6,11 +6,8 @@ import { signupSchema, loginSchema } from '../middleware/validation.js';
 
 const router = express.Router();
 
-// Public routes
 router.post('/signup', validate(signupSchema), signup);
 router.post('/login', validate(loginSchema), login);
-
-// Protected routes
 router.get('/me', authenticate, getMe);
 
 export default router;

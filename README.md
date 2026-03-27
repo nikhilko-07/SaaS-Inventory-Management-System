@@ -107,76 +107,7 @@
 | ESLint | Code quality |
 | Postman | API testing |
 
-📁 Project Structure
-text
-stockflow/
-├── backend/
-│   ├── prisma/
-│   │   └── schema.prisma                    # Database models
-│   ├── src/
-│   │   ├── config/
-│   │   │   ├── auth.js                      # JWT & bcrypt config
-│   │   │   └── database.js                  # Prisma client export
-│   │   ├── controllers/
-│   │   │   ├── authController.js            # Auth endpoints
-│   │   │   ├── productController.js         # Product CRUD
-│   │   │   ├── dashboardController.js       # Dashboard stats
-│   │   │   └── settingController.js         # Settings endpoints
-│   │   ├── middleware/
-│   │   │   ├── auth.js                      # JWT verification
-│   │   │   └── validation.js                # Joi validation
-│   │   ├── routes/
-│   │   │   ├── authRoutes.js                # Auth routes
-│   │   │   ├── productRoutes.js             # Product routes
-│   │   │   ├── dashboardRoutes.js           # Dashboard routes
-│   │   │   └── settingRoutes.js             # Settings routes
-│   │   ├── lib/
-│   │   │   └── prisma.js                    # Prisma singleton
-│   │   └── index.js                         # Server entry point
-│   ├── .env                                  # Environment variables
-│   └── package.json
-│
-├── frontend/
-│   ├── src/
-│   │   ├── app/
-│   │   │   ├── login/
-│   │   │   │   └── page.js                  # Login page
-│   │   │   ├── signup/
-│   │   │   │   └── page.js                  # Signup page
-│   │   │   ├── dashboard/
-│   │   │   │   └── page.js                  # Dashboard page
-│   │   │   ├── products/
-│   │   │   │   └── page.js                  # Products page
-│   │   │   ├── settings/
-│   │   │   │   └── page.js                  # Settings page
-│   │   │   ├── layout.js                    # Root layout
-│   │   │   ├── page.js                      # Landing page
-│   │   │   └── globals.css                  # Global styles
-│   │   ├── components/
-│   │   │   ├── Layout/
-│   │   │   │   ├── Navbar.js                # Navigation bar
-│   │   │   │   └── NavbarWrapper.js         # Client wrapper
-│   │   │   └── Products/
-│   │   │       ├── ProductModal.js          # Product form modal
-│   │   │       └── StockAdjustModal.js      # Stock adjustment modal
-│   │   ├── features/
-│   │   │   ├── auth/
-│   │   │   │   └── authSlice.js             # Auth state & actions
-│   │   │   ├── products/
-│   │   │   │   └── productSlice.js          # Products state
-│   │   │   ├── dashboard/
-│   │   │   │   └── dashboardSlice.js        # Dashboard state
-│   │   │   └── settings/
-│   │   │       └── settingSlice.js          # Settings state
-│   │   ├── services/
-│   │   │   └── api.js                       # Axios instance
-│   │   └── store/
-│   │       ├── store.js                     # Redux store
-│   │       └── provider.js                  # Redux provider
-│   ├── .env.local                           # Frontend env vars
-│   └── package.json
-│
-└── README.md
+
 🔌 API Endpoints
 Method	Endpoint	Description	Auth Required
 POST	/api/auth/signup	Register new user & organization	❌

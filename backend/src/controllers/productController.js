@@ -128,9 +128,14 @@ export const updateProduct = async (req, res) => {
       return res.status(404).json({ error: 'Product not found' });
     }
     
+    // Check SKU uniqueness if changing SKU
     if (sku !== existingProduct.sku) {
       const skuExists = await prisma.product.findFirst({
-        where: { organizationId, sku, id: { not: id } }
+        where: { 
+          organizationId, 
+          sku, 
+          id: { not: id } 
+        }
       });
       
       if (skuExists) {
@@ -144,11 +149,10 @@ export const updateProduct = async (req, res) => {
         name,
         sku,
         description,
-        quantityOnHand,
-        costPrice,
-        sellingPrice,
-        lowStockThreshold,
-        lastUpdatedBy: req.user.id  
+        quantityOnHand: quantityOnHand !== undefined ? quantityOnHand : existingProduct.quantityOnHand,
+        costPrice: costPrice !== undefined ? costPrice : existingProduct.costPrice,
+        sellingPrice: sellingPrice !== undefined ? sellingPrice : existingProduct.sellingPrice,
+        lowStockThreshold: lowStockThreshold !== undefined ? lowStockThreshold : existingProduct.lowStockThreshold,
       }
     });
     

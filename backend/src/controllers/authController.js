@@ -5,7 +5,6 @@ export const signup = async (req, res) => {
   try {
     const { email, password, organizationName } = req.body;
     
-    // Check if user exists
     const existingUser = await prisma.user.findUnique({
       where: { email }
     });
@@ -14,7 +13,6 @@ export const signup = async (req, res) => {
       return res.status(400).json({ error: 'Email already registered' });
     }
     
-    // Check if organization exists
     const existingOrg = await prisma.organization.findUnique({
       where: { name: organizationName }
     });
@@ -23,7 +21,6 @@ export const signup = async (req, res) => {
       return res.status(400).json({ error: 'Organization name already taken' });
     }
     
-    // Create organization and user in transaction
     const result = await prisma.$transaction(async (tx) => {
       const organization = await tx.organization.create({
         data: { name: organizationName }

@@ -110,8 +110,8 @@
 
 🔌 API Endpoints
 Method	Endpoint	Description	Auth Required
-POST	/api/auth/signup	Register new user & organization	❌
-POST	/api/auth/login	Login & receive JWT token	❌
+POST	/api/auth/signup	Register new user & organization	✅
+POST	/api/auth/login	Login & receive JWT token	✅
 GET	/api/auth/me	Get current user info	✅
 GET	/api/dashboard	Dashboard statistics	✅
 GET	/api/products	List products (search & pagination)	✅
@@ -122,7 +122,7 @@ PATCH	/api/products/:id/adjust-stock	Adjust stock quantity	✅
 DELETE	/api/products/:id	Delete product	✅
 GET	/api/settings	Get organization settings	✅
 PUT	/api/settings	Update settings	✅
-GET	/health	Health check	❌
+GET	/health	Health check	✅
 Example API Requests
 Signup
 
@@ -459,6 +459,7 @@ StockFlow Team
 GitHub: @yourusername
 
 Project Link: https://github.com/nikhilko-07/SaaS-Inventory-Management-System
+Live Link: https://saa-s-inventory-management-sys-git-e366fa-nikhilko-07s-projects.vercel.app/
 
 🙏 Acknowledgments
 Next.js - React framework

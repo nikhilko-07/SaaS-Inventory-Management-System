@@ -128,14 +128,9 @@ export const updateProduct = async (req, res) => {
       return res.status(404).json({ error: 'Product not found' });
     }
     
-    // Check SKU uniqueness if changing SKU
     if (sku !== existingProduct.sku) {
       const skuExists = await prisma.product.findFirst({
-        where: { 
-          organizationId, 
-          sku, 
-          id: { not: id } 
-        }
+        where: { organizationId, sku, id: { not: id } }
       });
       
       if (skuExists) {
@@ -146,9 +141,9 @@ export const updateProduct = async (req, res) => {
     const product = await prisma.product.update({
       where: { id },
       data: {
-        name,
-        sku,
-        description,
+        name: name !== undefined ? name : existingProduct.name,
+        sku: sku !== undefined ? sku : existingProduct.sku,
+        description: description !== undefined ? description : existingProduct.description,
         quantityOnHand: quantityOnHand !== undefined ? quantityOnHand : existingProduct.quantityOnHand,
         costPrice: costPrice !== undefined ? costPrice : existingProduct.costPrice,
         sellingPrice: sellingPrice !== undefined ? sellingPrice : existingProduct.sellingPrice,
